@@ -15,7 +15,7 @@ public class Main extends JavaPlugin implements Listener{
     @Override
     public void onDisable() {
         cancelAllTasks(this);
-        log.info(String.format("Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
+        log.info(String.format("Disabled Version 0.0.2"));
     }
 
     private void cancelAllTasks(Main main) {
@@ -24,9 +24,10 @@ public class Main extends JavaPlugin implements Listener{
     @Override
     public void onEnable() {
         getServer().getPluginManager().registerEvents(new MyListener(), this);
-        config.options().header("#Welcome to Mineable Frosted Ice, by Unprotesting  #\n#Visit https://github.com/Unprotesting   #\n#Enabled: Enable/Disable Plugin  #\n#Ice: Frosted Ice drops ice instead  #");
+        config.options().header("#Welcome to Mineable Frosted Ice, by Unprotesting  #\n#Visit https://github.com/Unprotesting   #\n#Enabled: Enable/Disable Plugin  #\n#Ice: Frosted Ice drops ice instead  #\n#Silk-Touch Required: Turn on Silk Touch requirement for block drop  #");
         config.addDefault("Enabled", true);
         config.addDefault("Ice", true);
+        config.addDefault("Silk-Touch Required", true);
         config.options().copyDefaults(true);
         saveConfig();
         plugin = this;

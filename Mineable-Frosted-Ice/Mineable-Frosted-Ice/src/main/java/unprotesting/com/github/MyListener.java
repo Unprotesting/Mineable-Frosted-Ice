@@ -19,20 +19,34 @@ public class MyListener implements Listener {
             return Main.plugin.getConfig().getBoolean("Ice");
         }
 
+        public static Boolean SilkTouchEnabled(){
+            return Main.plugin.getConfig().getBoolean("Silk-Touch Required");
+        }
+
         @EventHandler(priority=EventPriority.HIGH)
         public void onBlockBreak(BlockBreakEvent event){
             Material block = event.getBlock().getType();
             Player player = event.getPlayer();
                     if(block == Material.FROSTED_ICE){
                         boolean IceEnabled = IceEnabledMain();
-                        if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && IceEnabled == false){
+                        boolean SilkTouchEnabled = SilkTouchEnabled();
+                        if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && IceEnabled == false && SilkTouchEnabled == true){
                             event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(Material.FROSTED_ICE, 1));
                         }
                         
-                        else if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && IceEnabled == true){
+                        else if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && IceEnabled == true && SilkTouchEnabled == true){
                             event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(Material.ICE, 1));
                         }
-                        else {
+
+                        else if (IceEnabled == false && SilkTouchEnabled == false){
+                            event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(Material.FROSTED_ICE, 1));
+                        }
+
+                        else if (IceEnabled == true && SilkTouchEnabled == false){
+                            event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack(Material.ICE, 1));
+                        }
+
+                        else if (SilkTouchEnabled == true && player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) == false){
                                 player.sendMessage(ChatColor.BLUE + "You need Silk Touch to mine Frosted Ice");
                         }
                         
