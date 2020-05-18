@@ -17,7 +17,7 @@ public class Main extends JavaPlugin implements Listener{
     @Override
     public void onDisable() {
         cancelAllTasks(this);
-        log.info(String.format("Disabled Version 0.0.3"));
+        log.info(String.format("Disabled Version 0.0.5"));
     }
 
     private void cancelAllTasks(Main main) {}
