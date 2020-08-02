@@ -1,4 +1,4 @@
-package unprotesting.com.github;
+package unprotesting.com.github.listenable;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -8,6 +8,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import net.md_5.bungee.api.ChatColor;
+import unprotesting.com.github.Main;
+
 import org.bukkit.event.Listener;
 
 public class MyListener implements Listener {

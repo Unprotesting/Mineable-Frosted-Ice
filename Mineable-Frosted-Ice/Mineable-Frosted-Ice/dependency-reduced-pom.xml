@@ -4,7 +4,7 @@
   <groupId>unprotesting.com.github</groupId>
   <artifactId>Mineable-Frosted-Ice</artifactId>
   <name>Mineable-Frosted-Ice</name>
-  <version>0.0.3</version>
+  <version>0.0.7</version>
   <url>https://github.com/Unprotesting</url>
   <build>
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
@@ -53,7 +53,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.15.2-R0.1-SNAPSHOT</version>
+      <version>1.16.1-R0.1-SNAPSHOT</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>

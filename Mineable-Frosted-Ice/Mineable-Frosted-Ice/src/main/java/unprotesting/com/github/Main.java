@@ -8,6 +8,8 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import unprotesting.com.github.listenable.MyListener;
+
 public class Main extends JavaPlugin implements Listener{
     private static final Logger log = Logger.getLogger("Minecraft");
     File cfile;
@@ -17,7 +19,7 @@ public class Main extends JavaPlugin implements Listener{
     @Override
     public void onDisable() {
         cancelAllTasks(this);
-        log.info(String.format("Disabled Version 0.0.6"));
+        log.info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
 
     private void cancelAllTasks(Main main) {}
@@ -31,9 +33,8 @@ public class Main extends JavaPlugin implements Listener{
         config.addDefault("Silk-Touch Required", true);
         config.options().copyDefaults(true);
         saveConfig();
-        int pluginId = 7570;
-        plugin = this;
-        Metrics metrics = new Metrics(this, pluginId);
+        Metrics metrics = new Metrics(this, 7570);
+        metrics.addCustomChart(new Metrics.SimplePie("1", () -> "My value"));
         boolean enabled = getConfig().getBoolean("Enabled");
         if (enabled == false) {
             log.severe(String.format("Disabled plugin as defined in config!", getDescription().getName()));
