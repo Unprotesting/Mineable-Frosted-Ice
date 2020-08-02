@@ -18,7 +18,7 @@ public class MyListener implements Listener {
         return Main.plugin.getConfig().getString("Drop");
     }
 
-    public static Boolean SilkTouchEnabled() {
+    public static Boolean silkTouchEnabled() {
         return Main.plugin.getConfig().getBoolean("Silk-Touch Required");
     }
 
@@ -28,7 +28,7 @@ public class MyListener implements Listener {
         Player player = event.getPlayer();
             if(block == Material.FROSTED_ICE){
                 player.sendMessage(Drop());
-                boolean SilkTouchEnabled = SilkTouchEnabled();
+                boolean SilkTouchEnabled = silkTouchEnabled();
 
                 if (Drop() == null){
                     return;

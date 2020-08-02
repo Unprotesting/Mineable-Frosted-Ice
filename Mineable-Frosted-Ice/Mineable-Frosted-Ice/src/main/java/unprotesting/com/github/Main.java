@@ -1,6 +1,5 @@
 package unprotesting.com.github;
 
-import java.io.File;
 import java.util.logging.Logger;
 
 import org.bstats.bukkit.Metrics;
@@ -12,17 +11,13 @@ import unprotesting.com.github.listenable.MyListener;
 
 public class Main extends JavaPlugin implements Listener{
     private static final Logger log = Logger.getLogger("Minecraft");
-    File cfile;
-    FileConfiguration config = this.getConfig();
+    private FileConfiguration config = this.getConfig();
     public static Main plugin;
     public String Drop = ("ICE");
     @Override
     public void onDisable() {
-        cancelAllTasks(this);
         log.info(String.format("[%s] Disabled Version %s", getDescription().getName(), getDescription().getVersion()));
     }
-
-    private void cancelAllTasks(Main main) {}
 
     @Override
     public void onEnable() {
