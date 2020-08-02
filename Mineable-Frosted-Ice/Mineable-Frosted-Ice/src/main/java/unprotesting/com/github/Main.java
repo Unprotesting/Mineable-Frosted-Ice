@@ -36,7 +36,7 @@ public class Main extends JavaPlugin implements Listener{
         Metrics metrics = new Metrics(this, 7570);
         metrics.addCustomChart(new Metrics.SimplePie("1", () -> "My value"));
         boolean enabled = getConfig().getBoolean("Enabled");
-        if (enabled == false) {
+        if (!enabled) {
             log.severe(String.format("Disabled plugin as defined in config!", getDescription().getName()));
             getServer().getPluginManager().disablePlugin(this);
             return;

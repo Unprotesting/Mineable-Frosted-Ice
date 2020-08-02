@@ -48,15 +48,15 @@ public class MyListener implements Listener {
                     return;
                 }
 
-                else if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && SilkTouchEnabled == true){
+                else if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && SilkTouchEnabled){
                     event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(Drop())), 1));
                 }
 
-                else if (SilkTouchEnabled == false){
+                else if (!SilkTouchEnabled){
                     event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(Drop())), 1));
                 }
 
-                else if (SilkTouchEnabled == true && player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) == false){
+                else if (SilkTouchEnabled && !player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH)){
                         player.sendMessage(ChatColor.BLUE + "You need Silk Touch to mine Frosted Ice");
                 }
             }
