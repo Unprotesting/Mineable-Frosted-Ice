@@ -21,3 +21,11 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+.vscode/settings.json
+.vscode/
+target/
+*.prefs
+Mineable-Frosted-Ice/Mineable-Frosted-Ice/.settings/
+Mineable-Frosted-Ice/Mineable-Frosted-Ice/.settings/org.eclipse.jdt.apt.core.prefs
+Mineable-Frosted-Ice/Mineable-Frosted-Ice/.settings/org.eclipse.jdt.core.prefs
+Mineable-Frosted-Ice/Mineable-Frosted-Ice/.factorypath

@@ -1,0 +1,10 @@
+# #Welcome to Mineable Frosted Ice, by Unprotesting  #
+# #Visit https://github.com/Unprotesting   #
+# #Enabled: Enable/Disable Plugin  #
+# #Silk-Touch Required: Turn on Silk Touch requirement for block drop  #
+# #Drop: Put what item you want frosted ice to drop here   #
+# #Note: Frosted Ice (FROSTED_ICE) is not a spawnable item in 1.15     #
+# #bStats: https://bstats.org/plugin/bukkit/Mineable-Frosted-Ice/7570#
+Enabled: true
+Drop: ICE
+Silk-Touch-Required: true

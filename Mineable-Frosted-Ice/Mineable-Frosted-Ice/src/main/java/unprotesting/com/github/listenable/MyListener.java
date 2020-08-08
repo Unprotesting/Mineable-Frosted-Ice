@@ -9,51 +9,44 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import net.md_5.bungee.api.ChatColor;
 import unprotesting.com.github.Main;
+import unprotesting.com.github.util.Config;
 
 import org.bukkit.event.Listener;
 
 public class MyListener implements Listener {
 
-    public static String drop(){
-        return Main.plugin.getConfig().getString("Drop");
-    }
-
-    public static Boolean silkTouchEnabled() {
-        return Main.plugin.getConfig().getBoolean("Silk-Touch Required");
-    }
 
     @EventHandler(priority = EventPriority.HIGH)
     public void onBlockBreak(BlockBreakEvent event) {
         Material block = event.getBlock().getType();
         Player player = event.getPlayer();
             if(block == Material.FROSTED_ICE){
-                player.sendMessage(drop());
-                boolean SilkTouchEnabled = silkTouchEnabled();
+                Boolean SilkTouchEnabled = Config.getSilkTouchEnabled();
 
-                if (drop() == null){
+                if (Config.getDrop() == null){
                     return;
                 }
 
-                else if (drop() == ("AIR")){
+                else if (Config.getDrop() == ("AIR")){
                     return;
                 }
 
-                else if (drop() == ("FROSTED_ICE")){
-                    player.sendMessage(drop() + " is invalid");
+                else if (Config.getDrop()== ("FROSTED_ICE")){
+                    player.sendMessage(Config.getDrop() + " is invalid");
                     return;
                 }
 
-                else if (drop() == ("LEGACY_FROSTED_ICE")){
-                    player.sendMessage(drop() + " is invalid");
+                else if (Config.getDrop() == ("LEGACY_FROSTED_ICE")){
+                    player.sendMessage(Config.getDrop() + " is invalid");
                     return;
                 }
 
                 else if (player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH) && SilkTouchEnabled){
-                    event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(drop())), 1));
+                    event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(Config.getDrop())), 1));
                 }
 
                 else if (!SilkTouchEnabled){
-                    event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(drop())), 1));
+                    event.getBlock().getWorld().dropItem(event.getBlock().getLocation(), new ItemStack((Material.matchMaterial(Config.getDrop())), 1));
                 }
 
                 else if (SilkTouchEnabled && !player.getInventory().getItemInMainHand().containsEnchantment(Enchantment.SILK_TOUCH)){

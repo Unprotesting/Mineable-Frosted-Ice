@@ -4,7 +4,7 @@
   <groupId>unprotesting.com.github</groupId>
   <artifactId>Mineable-Frosted-Ice</artifactId>
   <name>Mineable-Frosted-Ice</name>
-  <version>0.0.7</version>
+  <version>0.0.8</version>
   <url>https://github.com/Unprotesting</url>
   <build>
     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
@@ -13,6 +13,7 @@
         <directory>${project.basedir}/src/main/resources</directory>
         <includes>
           <include>plugin.yml</include>
+          <include>config.yml</include>
         </includes>
       </resource>
     </resources>
@@ -32,7 +33,7 @@
           <relocations>
             <relocation>
               <pattern>org.bstats</pattern>
-              <shadedPattern>your.package</shadedPattern>
+              <shadedPattern>unprotesting.com.github</shadedPattern>
             </relocation>
           </relocations>
         </configuration>
